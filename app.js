@@ -14,6 +14,12 @@ app.use(express.json());
 // use cookie-parser
 app.use(cookieParser());
 
+// require cors
+const cors = require('cors');
+
+// use cors
+app.use(cors());
+
 // express router
 app.use("/", require("./routes/user"));
 
