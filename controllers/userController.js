@@ -103,7 +103,7 @@ const userController = {
       });
 
       // store jwt token in localstorage
-      localStorage.setItem("token", jwtToken);
+      // localStorage.setItem("token", jwtToken);
 
       return res
         .status(200)
@@ -121,7 +121,7 @@ const userController = {
     res.clearCookie("token");
 
     // clear localstorage
-    localStorage.removeItem("token");
+    // localStorage.removeItem("token");
 
     // send response
     return res.status(200).json({ message: "User logged out successfully" });
