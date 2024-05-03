@@ -37,7 +37,8 @@ const shortner = {
       const subId = (Math.random() + 1).toString(36).substring(2);
 
       // create short url
-      const shortURL = `${req.protocol}://${req.get("host")}/${subId}`;
+      // const shortURL = `${req.protocol}://${req.get("host")}/${subId}`;
+      const shortURL = `https://shortener/${subId}`;
 
       // create insert object
       const url = {
