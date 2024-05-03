@@ -37,8 +37,7 @@ const shortner = {
       const subId = (Math.random() + 1).toString(36).substring(2);
 
       // create short url
-      // const shortURL = `${req.protocol}://${req.get("host")}/${subId}`;
-      const shortURL = `https://shortener/${subId}`;
+      const shortURL = `${req.protocol}://${req.get("host")}/${subId}`;
 
       // create insert object
       const url = {
@@ -77,8 +76,7 @@ const shortner = {
       const { shortId } = req.params;
 
       //   convert short url to base64
-      // const shortURL = `${req.protocol}://${req.get("host")}/${shortId}`;
-      const shortURL = `https://shortener/${shortId}`;
+      const shortURL = `${req.protocol}://${req.get("host")}/${shortId}`;
 
       // connect to mongodb
       await uri.connect();
