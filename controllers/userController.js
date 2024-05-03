@@ -95,12 +95,12 @@ const userController = {
       );
 
       // send jwt token in cookie
-      // res.cookie("token", jwtToken, {
-      //   httpOnly: true,
-      //   maxAge: 24 * 60 * 60 * 1000, //24 hours
-      //   secure: true,
-      //   sameSite: "none",
-      // });
+      res.cookie("token", jwtToken, {
+        httpOnly: true,
+        maxAge: 24 * 60 * 60 * 1000, //24 hours
+        secure: true,
+        sameSite: "none",
+      });
 
       // store jwt token in localstorage
       localStorage.setItem("token", jwtToken);
@@ -118,7 +118,7 @@ const userController = {
   //   logout user
   logout: (req, res) => {
     // clear cookie
-    // res.clearCookie("token");
+    res.clearCookie("token");
 
     // clear localstorage
     localStorage.removeItem("token");
@@ -256,7 +256,7 @@ const userController = {
       // find current logged user in db
       const currentUser = await collection.findOne(
         { _id: new ObjectId(req.user.id) },
-        { projection:{ _id:1,name:1,email:1,location:1}}
+        { projection: { _id: 1, name: 1, email: 1, location: 1 } }
       );
 
       return res.status(200).json(currentUser);
