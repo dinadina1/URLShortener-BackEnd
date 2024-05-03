@@ -95,12 +95,16 @@ const userController = {
       );
 
       // send jwt token in cookie
-      res.cookie("token", jwtToken, {
-        httpOnly: true,
-        maxAge: 24 * 60 * 60 * 1000, //24 hours
-        secure: true,
-        sameSite: "none",
-      });
+      // res.cookie("token", jwtToken, {
+      //   httpOnly: true,
+      //   maxAge: 24 * 60 * 60 * 1000, //24 hours
+      //   secure: true,
+      //   sameSite: "none",
+      // });
+
+      // store jwt token in localstorage
+      localStorage.setItem("token", jwtToken);
+
       return res
         .status(200)
         .json({ message: "User logged in successfully", token: jwtToken });
@@ -114,7 +118,12 @@ const userController = {
   //   logout user
   logout: (req, res) => {
     // clear cookie
-    res.clearCookie("token");
+    // res.clearCookie("token");
+
+    // clear localstorage
+    localStorage.removeItem("token");
+
+    // send response
     return res.status(200).json({ message: "User logged out successfully" });
   },
 

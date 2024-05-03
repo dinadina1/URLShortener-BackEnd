@@ -8,7 +8,11 @@ const {SECRET_KEY} = require('../utilities/config');
 const authenticate = (req, res, next) => {
     
     // check if token is present in the request
-    const token = req.cookies.token;
+    // const token = req.cookies.token;
+
+    // get token from headers
+    const token = req.headers.authorization;
+
     if(!token) return res.status(401).json({message: 'No token found'});
 
     // verify token
