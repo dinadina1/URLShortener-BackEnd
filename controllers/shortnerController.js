@@ -77,7 +77,8 @@ const shortner = {
       const { shortId } = req.params;
 
       //   convert short url to base64
-      const shortURL = `${req.protocol}://${req.get("host")}/${shortId}`;
+      // const shortURL = `${req.protocol}://${req.get("host")}/${shortId}`;
+      const shortURL = `https://shortener/${shortId}`;
 
       // connect to mongodb
       await uri.connect();
@@ -127,7 +128,6 @@ const shortner = {
         return res.status(200).json(data);
       }
       return res.status(404).json({ message: "No data found" });
-      
     } catch (err) {
       console.log(err);
       return res.status(500).json({ message: err.message });
