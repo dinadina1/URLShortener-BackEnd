@@ -18,7 +18,13 @@ app.use(cookieParser());
 const cors = require('cors');
 
 // use cors
-app.use(cors());
+const cors = require('cors');
+
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true
+}));
+
 
 // express router
 app.use("/", require("./routes/user"));
