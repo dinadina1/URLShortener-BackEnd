@@ -19,7 +19,7 @@ const cors = require('cors');
 
 // use cors
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://urlshortners.netlify.app/",
   credentials: true
 }));
 
